@@ -26,7 +26,7 @@ public class Fournisseur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String matricule;
+    private String reference;
     private String login;
     private String motDePasse;
     @ManyToOne
@@ -52,11 +52,11 @@ public class Fournisseur implements Serializable {
     }
 
     public String getMatricule() {
-        return matricule;
+        return reference;
     }
 
-    public void setMatricule(String matricule) {
-        this.matricule = matricule;
+    public void setMatricule(String reference) {
+        this.reference = reference;
     }
 
     public String getMotDePasse() {

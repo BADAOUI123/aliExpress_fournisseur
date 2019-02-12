@@ -26,7 +26,7 @@ public class FournisseurServiceImpl implements FournisseurService {
 
     @Override
     public int saveFournisseur(Fournisseur fournisseur) {
-        Fournisseur f = findByMatricule(fournisseur.getMatricule());
+        Fournisseur f = findByReference(fournisseur.getMatricule());
         if (f != null) {
             return -1;
         } else {
@@ -38,29 +38,23 @@ public class FournisseurServiceImpl implements FournisseurService {
         }
     }
 
-    
     @Override
-    public Fournisseur findByMatricule(String matricule) {
-        return fournisseurDao.findByMatricule(matricule);
+    public Fournisseur findByReference(String reference) {
+        return fournisseurDao.findByReference(reference);
     }
-
-   
-    
 
     @Override
     public int seConnecterFournissuer(Fournisseur fournisseur) {
-        Fournisseur fourniCharge=new Fournisseur();
-        if(fourniCharge.getMatricule()==null){
+        Fournisseur fourniCharge = new Fournisseur();
+        if (fourniCharge.getMatricule() == null) {
             return -1;
-        }else if(!fourniCharge.getMotDePasse().equals(fournisseur.getMotDePasse())){
+        } else if (!fourniCharge.getMotDePasse().equals(fournisseur.getMotDePasse())) {
             return -2;
-        }else{
+        } else {
             return 1;
         }
-        
-        
-    }
 
+    }
 
     public FournisseurDao getFournisseurDao() {
         return fournisseurDao;
@@ -77,6 +71,5 @@ public class FournisseurServiceImpl implements FournisseurService {
     public void setReviewService(ReviewService reviewService) {
         this.reviewService = reviewService;
     }
-    
 
 }

@@ -15,9 +15,8 @@ public interface FournisseurService {
 
     public int saveFournisseur(Fournisseur fournisseur);
 
-    public Fournisseur findByMatricule(String matricule);
+    public Fournisseur findByReference(String reference);
 
     public int seConnecterFournissuer(Fournisseur fournisseur);
-
 
 }
